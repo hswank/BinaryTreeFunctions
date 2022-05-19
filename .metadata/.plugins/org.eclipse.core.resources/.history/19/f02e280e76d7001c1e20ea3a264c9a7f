@@ -1,0 +1,47 @@
+package binaryTree;
+
+public class binaryTreeApp {
+
+	public static void main(String[] args) {
+		Node root = new Node(15);
+
+		Node seven = new Node(7);
+		root.setLeft(seven);
+		Node twenty = new Node(20);
+		root.setRight(twenty);
+		Node six = new Node(6);
+		seven.setLeft(six);
+		Node twelve = new Node(12);
+		seven.setRight(twelve);
+		Node five = new Node(5);
+		six.setLeft(five);
+		Node ten = new Node(10);
+		twelve.setLeft(ten);
+		Node eighteen = new Node(18);
+		twenty.setLeft(eighteen);
+		Node twentyTwo = new Node(22);
+		twenty.setRight(twentyTwo);
+		Node sixteen = new Node(16);
+		eighteen.setLeft(sixteen);
+		Node nineteen = new Node(19);
+		eighteen.setRight(nineteen);
+		Node twentyFive = new Node(25);
+		twentyTwo.setRight(twentyFive);
+
+		System.out.println(findMax(root));
+	}
+
+	public static int findMax(Node root) {
+		Node testAgainst = root;
+		int maximum = testAgainst.getValue();
+
+		do{
+				if (testAgainst.getValue() > maximum) {
+					maximum = testAgainst.getValue();
+				}
+				testAgainst = testAgainst.getRight();
+			} while (testAgainst != null);
+		return maximum;
+	}
+
+}
